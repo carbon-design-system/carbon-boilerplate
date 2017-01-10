@@ -10,15 +10,17 @@ const nodemon = require('gulp-nodemon');
 
 gulp.task('watch', () => {
   gulp.watch('./app/scss/*.scss', ['styles', reload]);
-  gulp.watch('./app/*.html', reload);
+  gulp.watch('./app/*.html', ['copyHTML', reload]);
 });
 
-gulp.task('build', ['styles'], () => {
+gulp.task('copyHTML', () => {
   return gulp.src([
     'app/index.html'
   ])
   .pipe(gulp.dest('./app/dist'));
-});
+})
+
+gulp.task('build', ['styles', 'copyHTML']);
 
 gulp.task('styles', () => {
   return gulp.src('app/scss/*.scss')
