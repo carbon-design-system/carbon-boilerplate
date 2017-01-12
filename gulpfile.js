@@ -8,13 +8,22 @@ const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const nodemon = require('gulp-nodemon');
 const rename = require('gulp-rename');
+const babel = require('gulp-babel');
 
-gulp.task('js', () => {
+gulp.task('copyJS', () => {
   return gulp.src([
     'node_modules/@console/bluemix-components/consumables/js/es5/bluemix-components.min.js',
     'node_modules/svgxuse/svgxuse.min.js',
   ])
   .pipe(gulp.dest('./app/dist/js'));
+});
+ 
+gulp.task('js', () => {
+    return gulp.src('app/js/*.js')
+        .pipe(babel({
+            presets: ['es2015', 'stage-1']
+        }))
+        .pipe(gulp.dest('app/dist/js'));
 });
 
 gulp.task('fonts', () => {
@@ -66,10 +75,11 @@ gulp.task('nodemon', () => {
 
 gulp.task('watch', () => {
   gulp.watch('./app/scss/*.scss', ['styles', reload]);
+  gulp.watch('./app/js/*.js', ['js', reload]);
   gulp.watch('./app/*.html', ['html', reload]);
 });
 
-gulp.task('build', ['fonts', 'html', 'styles', 'js']);
+gulp.task('build', ['fonts', 'html', 'styles', 'copyJS', 'js']);
 
 gulp.task('dev', ['build', 'watch', 'nodemon'], () => {
   browserSync.init({
