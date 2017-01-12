@@ -5,7 +5,7 @@ $use-fonts: true;
 body {
   transition: all $transition--base;
   padding: 2rem 5% 0;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .bx--theme-switcher {
@@ -52,4 +52,60 @@ body {
       }
     }
   }
+}
+
+.title {
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: 700; 
+
+  span {
+    display: block;
+    font-weight: 200;
+  }
+}
+
+.demo-content {
+  p {
+    @include font-size('26');
+    margin-top: 2rem;
+
+    .bx--link {
+      @include font-size('26');
+    }
+  }
+
+  ul  {
+    margin-top: 1rem;
+    @include font-size('20');
+  }
+
+  .bx--btn {
+    margin-top: 2rem;
+  }
+  
+  .anchor {
+    @include font-size('14');
+    text-align: right;
+    position: fixed;
+    right: 2rem;
+    bottom: .5rem;
+    
+    span {
+      color: $color__blue-30;
+      
+      &:first-child {
+        color: $color__white;
+        font-weight: 700;
+        
+        @include light-ui {
+          color: $color__blue-90;
+        }
+      }
+      
+      @include light-ui {
+        color: $color__blue-51;
+      }
+    }
+  }  
 }
