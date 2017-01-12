@@ -7,20 +7,28 @@ const sass = require('gulp-sass');
 const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const nodemon = require('gulp-nodemon');
+const rename = require('gulp-rename');
 
-gulp.task('watch', () => {
-  gulp.watch('./app/scss/*.scss', ['styles', reload]);
-  gulp.watch('./app/*.html', ['copyHTML', reload]);
+gulp.task('js', () => {
+  return gulp.src([
+    'node_modules/@console/bluemix-components/consumables/js/es5/bluemix-components.min.js',
+    'node_modules/svgxuse/svgxuse.min.js',
+  ])
+  .pipe(gulp.dest('./app/dist/js'));
 });
 
-gulp.task('copyHTML', () => {
+gulp.task('fonts', () => {
+  return gulp.src('node_modules/@console/bluemix-components/consumables/assets/fonts/*.{woff2,woff}')
+    .pipe(gulp.dest('app/fonts'))
+    .pipe(gulp.dest('app/dist/fonts'))
+});
+
+gulp.task('html', () => {
   return gulp.src([
     'app/index.html'
   ])
   .pipe(gulp.dest('./app/dist'));
-})
-
-gulp.task('build', ['styles', 'copyHTML']);
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/scss/*.scss')
@@ -54,11 +62,18 @@ gulp.task('nodemon', () => {
   });
   
   return stream;
-})
+});
+
+gulp.task('watch', () => {
+  gulp.watch('./app/scss/*.scss', ['styles', reload]);
+  gulp.watch('./app/*.html', ['html', reload]);
+});
+
+gulp.task('build', ['fonts', 'html', 'styles', 'js']);
 
 gulp.task('dev', ['build', 'watch', 'nodemon'], () => {
   browserSync.init({
     proxy: 'http://localhost:7777',
     open: false
   });
-})
+});
