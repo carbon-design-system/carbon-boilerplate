@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "start": "node app/bin/www.js"
   },
   "author": "TJ Egan",
   "license": "ISC",
