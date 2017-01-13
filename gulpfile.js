@@ -9,6 +9,15 @@ const sourcemaps = require('gulp-sourcemaps');
 const nodemon = require('gulp-nodemon');
 const rename = require('gulp-rename');
 const babel = require('gulp-babel');
+const deploy = require('gulp-deploy-git');
+
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe(deploy({
+      repository: 'git@github.ibm.com:twegan/carbon-boilerplate.git',
+      branches:   ['gh-pages']
+    }));
+});
 
 gulp.task('copyJS', () => {
   return gulp.src([
