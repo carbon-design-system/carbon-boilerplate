@@ -19,7 +19,7 @@ function toggleTheme(e) {
 }
 
 if (themeButtons.length > 0) {
-  themeButtons.forEach(icon => {
+  themeButtons.forEach((icon) => {
     icon.addEventListener('click', toggleTheme);
-  })
+  });
 }

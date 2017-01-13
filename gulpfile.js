@@ -1,46 +1,42 @@
-'use strict';
+'use strict'; // eslint-disable-line
 
 const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
-const reload = browserSync.reload;
 const sass = require('gulp-sass');
 const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const nodemon = require('gulp-nodemon');
-const rename = require('gulp-rename');
 const babel = require('gulp-babel');
+const browserSync = require('browser-sync').create();
 
-gulp.task('copyJS', () => {
-  return gulp.src([
+const reload = browserSync.reload;
+
+gulp.task('copyJS', () =>
+  gulp.src([
     'node_modules/@console/bluemix-components/consumables/js/es5/bluemix-components.min.js',
     'node_modules/svgxuse/svgxuse.min.js',
   ])
-  .pipe(gulp.dest('./app/dist/js'));
-});
- 
-gulp.task('js', () => {
-    return gulp.src('app/js/*.js')
-        .pipe(babel({
-            presets: ['es2015', 'stage-1']
-        }))
-        .pipe(gulp.dest('app/dist/js'));
-});
+  .pipe(gulp.dest('./app/dist/js')));
 
-gulp.task('fonts', () => {
-  return gulp.src('node_modules/@console/bluemix-components/consumables/assets/fonts/*.{woff2,woff}')
+gulp.task('js', () =>
+  gulp.src('app/js/*.js')
+    .pipe(babel({
+      presets: ['es2015', 'stage-1'],
+    }))
+    .pipe(gulp.dest('app/dist/js')));
+
+gulp.task('fonts', () =>
+  gulp.src('node_modules/@console/bluemix-components/consumables/assets/fonts/*.{woff2,woff}')
     .pipe(gulp.dest('app/fonts'))
-    .pipe(gulp.dest('app/dist/fonts'))
-});
+    .pipe(gulp.dest('app/dist/fonts')));
 
-gulp.task('html', () => {
-  return gulp.src([
-    'app/index.html'
+gulp.task('html', () =>
+  gulp.src([
+    'app/index.html',
   ])
-  .pipe(gulp.dest('./app/dist'));
-});
+  .pipe(gulp.dest('./app/dist')));
 
-gulp.task('styles', () => {
-  return gulp.src('app/scss/*.scss')
+gulp.task('styles', () =>
+  gulp.src('app/scss/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed',
@@ -51,12 +47,11 @@ gulp.task('styles', () => {
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./app/dist/css'))
-    .pipe(browserSync.stream());
-});
+    .pipe(browserSync.stream()));
 
 gulp.task('nodemon', () => {
   let started = false;
-  
+
   const stream = nodemon({
     script: './app/bin/www',
     watch: './app',
@@ -64,12 +59,11 @@ gulp.task('nodemon', () => {
   .on('start', () => {
     if (!started) {
       started = true;
-      cb();
     } else {
       browserSync.reload({ stream: false });
     }
   });
-  
+
   return stream;
 });
 
@@ -84,6 +78,6 @@ gulp.task('build', ['fonts', 'html', 'styles', 'copyJS', 'js']);
 gulp.task('dev', ['build', 'watch', 'nodemon'], () => {
   browserSync.init({
     proxy: 'http://localhost:7777',
-    open: false
+    open: false,
   });
 });

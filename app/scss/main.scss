@@ -75,9 +75,13 @@ body {
     }
   }
 
-  ul  {
+  ul {
     margin-top: 1rem;
     @include font-size('20');
+
+    .bx--link {
+      @include font-size('20');
+    }
   }
 
   .bx--btn {
