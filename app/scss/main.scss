@@ -90,7 +90,11 @@ body {
     position: fixed;
     right: 2rem;
     bottom: .5rem;
-    
+
+    .bx--link {
+      @include font-size('14');
+    }
+
     span {
       color: $color__blue-30;
       
