@@ -34,7 +34,7 @@ gulp.task('img', () =>
     .pipe(gulp.dest('app/dist/assets/img')));
 
 gulp.task('styles', () =>
-  gulp.src('app/scss/*.scss')
+  gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed',
@@ -66,7 +66,7 @@ gulp.task('nodemon', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch('./app/scss/*.scss', ['styles', reload]);
+  gulp.watch('./app/scss/**/*.scss', ['styles', reload]);
   gulp.watch('./app/js/*.js', ['js', reload]);
   gulp.watch('./app/views/**/*.html', reload);
 });

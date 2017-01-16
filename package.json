@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
     "dev": "gulp dev",
-    "start": "node app/bin/www.js"
+    "start": "node app/bin/www.js",
+    "deploy": "cf push <<APP NAME HERE>>"
   },
   "author": "TJ Egan",
   "license": "ISC",

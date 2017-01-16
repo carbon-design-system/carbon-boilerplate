@@ -5,6 +5,7 @@
   padding: 1rem;
 
   &__icon {
+    cursor: pointer;
     transition: all $transition--base;
     width: 1.25rem;
     height: 1.25rem;
