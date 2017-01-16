@@ -1,0 +1,18 @@
+.bx--global-light-ui .bx--dropdown[data-value=''] .bx--dropdown__menu-text {
+  color: $color__white;
+}
+
+.bx--profile-image {
+  display: flex;
+  align-items: center;
+}
+
+.bx--top-nav__right-container .bx--dropdown__profile-dropdown--picture {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.bx--dropdown__list-item .bx--dropdown__profile-dropdown--picture {
+  height: 100%;
+  width: auto;
+}

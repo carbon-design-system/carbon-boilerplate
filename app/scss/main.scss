@@ -1,119 +1,15 @@
-$font-path: '../fonts';
+$font-path: '../assets/fonts';
 $use-fonts: true;
+
 @import 'bluemix-components/consumables/scss/styles';
+@import 'theme-switcher';
+@import 'temp';
+@import 'overrides';
 
 body {
   transition: all $transition--base;
-  padding: 2rem 5% 0;
-  max-width: 1200px;
 }
 
-.bx--theme-switcher {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 1rem;
-
-  &__icon {
-    transition: all $transition--base;
-    width: 1.25rem;
-    height: 1.25rem;
-    padding-bottom: .25rem;
-    fill: $color__navy-gray-7;
-    border-bottom: 2px solid transparent;
-
-    &:first-child {
-      margin-right: .5rem;
-    }
-
-    &:hover {
-      fill: $color__blue-20;
-
-      @include light-ui {
-        fill: $color__blue-40;
-      }
-    }
-  }
-
-  &__icon--active {
-    fill: $color__blue-30;
-    border-bottom: 2px solid $color__blue-30;
-
-    &:hover {
-      border-bottom: 2px solid $color__blue-20;
-    }
-
-    @include light-ui {
-      fill: $color__blue-51;
-      border-bottom: 2px solid $color__blue-51;
-
-      &:hover {
-        border-bottom: 2px solid $color__blue-40;
-      }
-    }
-  }
-}
-
-.title {
-  display: inline-block;
-  font-size: 4rem;
-  font-weight: 700; 
-
-  span {
-    display: block;
-    font-weight: 200;
-  }
-}
-
-.demo-content {
-  p {
-    @include font-size('26');
-    margin-top: 2rem;
-
-    .bx--link {
-      @include font-size('26');
-    }
-  }
-
-  ul {
-    margin-top: 1rem;
-    @include font-size('20');
-
-    .bx--link {
-      @include font-size('20');
-    }
-  }
-
-  .bx--btn {
-    margin-top: 2rem;
-  }
-  
-  .anchor {
-    @include font-size('14');
-    text-align: right;
-    position: fixed;
-    right: 2rem;
-    bottom: .5rem;
-
-    .bx--link {
-      @include font-size('14');
-    }
-
-    span {
-      color: $color__blue-30;
-      
-      &:first-child {
-        color: $color__white;
-        font-weight: 700;
-        
-        @include light-ui {
-          color: $color__blue-90;
-        }
-      }
-      
-      @include light-ui {
-        color: $color__blue-51;
-      }
-    }
-  }  
+.container {
+  padding: calc(2rem + 86px) 5% 0;
 }

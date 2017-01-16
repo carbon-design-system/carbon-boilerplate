@@ -15,7 +15,7 @@ gulp.task('copyJS', () =>
     'node_modules/@console/bluemix-components/consumables/js/es5/bluemix-components.min.js',
     'node_modules/svgxuse/svgxuse.min.js',
   ])
-  .pipe(gulp.dest('./app/dist/js')));
+    .pipe(gulp.dest('./app/dist/js')));
 
 gulp.task('js', () =>
   gulp.src('app/js/*.js')
@@ -26,14 +26,12 @@ gulp.task('js', () =>
 
 gulp.task('fonts', () =>
   gulp.src('node_modules/@console/bluemix-components/consumables/assets/fonts/*.{woff2,woff}')
-    .pipe(gulp.dest('app/fonts'))
-    .pipe(gulp.dest('app/dist/fonts')));
+    .pipe(gulp.dest('app/assets/fonts'))
+    .pipe(gulp.dest('app/dist/assets/fonts')));
 
-gulp.task('html', () =>
-  gulp.src([
-    'app/index.html',
-  ])
-  .pipe(gulp.dest('./app/dist')));
+gulp.task('img', () =>
+  gulp.src('app/assets/img/**.*')
+    .pipe(gulp.dest('app/dist/assets/img')));
 
 gulp.task('styles', () =>
   gulp.src('app/scss/*.scss')
@@ -70,10 +68,10 @@ gulp.task('nodemon', () => {
 gulp.task('watch', () => {
   gulp.watch('./app/scss/*.scss', ['styles', reload]);
   gulp.watch('./app/js/*.js', ['js', reload]);
-  gulp.watch('./app/*.html', ['html', reload]);
+  gulp.watch('./app/views/**/*.html', reload);
 });
 
-gulp.task('build', ['fonts', 'html', 'styles', 'copyJS', 'js']);
+gulp.task('build', ['fonts', 'img', 'styles', 'copyJS', 'js']);
 
 gulp.task('dev', ['build', 'watch', 'nodemon'], () => {
   browserSync.init({
