@@ -1,7 +1,7 @@
 .bx--theme-switcher {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  top: calc(86px + .5rem);
+  right: 0;
   padding: 1rem;
 
   &__icon {
@@ -18,11 +18,10 @@
     }
 
     &:hover {
-      fill: $color__blue-20;
-
       @include light-ui {
         fill: $color__blue-40;
       }
+      fill: $color__blue-20;
     }
   }
 

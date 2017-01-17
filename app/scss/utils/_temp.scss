@@ -22,8 +22,8 @@
   }
 
   ul {
-    margin-top: 1rem;
     @include font-size('20');
+    margin-top: 1rem;
 
     .bx--link {
       @include font-size('20');
@@ -33,7 +33,7 @@
   .bx--btn {
     margin-top: 2rem;
   }
-  
+
   .anchor {
     @include font-size('14');
     text-align: right;
@@ -47,14 +47,14 @@
 
     span {
       color: $color__blue-30;
-      
+
       &:first-child {
-        color: $color__white;
-        font-weight: 700;
-        
         @include light-ui {
           color: $color__blue-90;
         }
+
+        color: $color__white;
+        font-weight: 700;
       }
       
       @include light-ui {

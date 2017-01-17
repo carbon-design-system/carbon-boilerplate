@@ -8,7 +8,8 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "start": "node app/bin/www.js",
-    "deploy": "cf push <<APP NAME HERE>>"
+    "deploy": "cf push <<APP NAME HERE>>",
+    "postinstall": "gulp build"
   },
   "author": "TJ Egan",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.3.0"
+    "gulp-sourcemaps": "^2.3.0",
+    "sass-lint": "^1.10.2"
   }
 }
