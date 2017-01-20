@@ -1,5 +1,6 @@
 $font-path: '../assets/fonts';
 $use-fonts: true;
+$use-reset: true;
 
 @import 'bluemix-components/consumables/scss/styles';
 @import 'utils/theme-switcher';
