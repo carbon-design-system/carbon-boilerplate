@@ -11,6 +11,9 @@
     "deploy": "cf push <<APP NAME HERE>>",
     "postinstall": "gulp build"
   },
+  "engines": {
+    "node": "^4.0.0"
+  },
   "author": "TJ Egan",
   "license": "ISC",
   "dependencies": {
