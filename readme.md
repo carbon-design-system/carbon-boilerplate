@@ -1,7 +1,7 @@
 ### Installation
-- `git clone git@github.ibm.com:twegan/carbon-boilerplate.git`
+- `git clone git@github.com:carbon-design-system/carbon-boilerplate.git`
 - `cd carbon-boilerplate`
-- `npm install`
+- `npm install` or `yarn`
 - `npm run dev`
 
 ### Usage
@@ -11,7 +11,7 @@ To start using the boilerplate, navigate to `app/views/home.html` and add some c
 Easily deploy your app to Bluemix. In your `package.json` look for a script like this: `"deploy": "cf push <<APP NAME HERE>>"`. Simply change `<<APP NAME HERE>>` to a valid app name, and then run `npm run deploy`
 
 ### Bugs
-Find a bug? Contact me on the Cloud Platform Slack (`@tjegan`) or submit a new issue.
+Find a bug? Contact me on the Cloud Platform Slack (`@twegan`) or submit a new issue.
 
 ### Contributing
 To contribute, make a fork of this repo and submit a PR
