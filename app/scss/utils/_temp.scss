@@ -4,7 +4,7 @@
   .title {
     display: inline-block;
     font-size: 4rem;
-    font-weight: 700; 
+    font-weight: 700;
 
     span {
       display: block;
@@ -46,20 +46,16 @@
     }
 
     span {
-      color: $color__blue-30;
+      color: $brand-01;
 
       &:first-child {
         @include light-ui {
-          color: $color__blue-90;
+          color: $text-02;
         }
 
-        color: $color__white;
+        color: $text-01;
         font-weight: 700;
       }
-      
-      @include light-ui {
-        color: $color__blue-51;
-      }
     }
-  }  
+  }
 }

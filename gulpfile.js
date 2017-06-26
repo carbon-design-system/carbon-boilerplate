@@ -11,41 +11,52 @@ const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
 gulp.task('copyJS', () =>
-  gulp.src([
-    'node_modules/@console/bluemix-components/consumables/js/es5/bluemix-components.min.js',
-    'node_modules/svgxuse/svgxuse.min.js',
-  ])
-    .pipe(gulp.dest('./app/dist/js')));
+  gulp
+    .src(['node_modules/carbon-components/scripts/carbon-components.min.js'])
+    .pipe(gulp.dest('dist/js'))
+);
+
+gulp.task('copyHTML', () => gulp.src('app/views/home.html').pipe(gulp.dest('dist')));
 
 gulp.task('js', () =>
-  gulp.src('app/js/*.js')
-    .pipe(babel({
-      presets: ['es2015', 'stage-1'],
-    }))
-    .pipe(gulp.dest('app/dist/js')));
+  gulp
+    .src('app/js/*.js')
+    .pipe(
+      babel({
+        presets: ['es2015', 'stage-1'],
+      })
+    )
+    .pipe(gulp.dest('dist/js'))
+);
 
 gulp.task('fonts', () =>
-  gulp.src('node_modules/@console/bluemix-components/consumables/assets/fonts/*.{woff2,woff}')
+  gulp
+    .src('node_modules/carbon-components/src/globals/fonts/*.{woff2,woff}')
     .pipe(gulp.dest('app/assets/fonts'))
-    .pipe(gulp.dest('app/dist/assets/fonts')));
+    .pipe(gulp.dest('dist/assets/fonts'))
+);
 
-gulp.task('img', () =>
-  gulp.src('app/assets/img/**.*')
-    .pipe(gulp.dest('app/dist/assets/img')));
+gulp.task('img', () => gulp.src('app/assets/img/**.*').pipe(gulp.dest('dist/assets/img')));
 
 gulp.task('styles', () =>
-  gulp.src('app/scss/**/*.scss')
+  gulp
+    .src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      outputStyle: 'compressed',
-      includePaths: ['node_modules/@console'],
-    }))
-    .pipe(prefix({
-      browsers: ['> 1%', 'last 2 versions'],
-    }))
+    .pipe(
+      sass({
+        outputStyle: 'compressed',
+        includePaths: ['node_modules'],
+      })
+    )
+    .pipe(
+      prefix({
+        browsers: ['> 1%', 'last 2 versions'],
+      })
+    )
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./app/dist/css'))
-    .pipe(browserSync.stream()));
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(browserSync.stream())
+);
 
 gulp.task('nodemon', () => {
   let started = false;
@@ -53,8 +64,7 @@ gulp.task('nodemon', () => {
   const stream = nodemon({
     script: './app/bin/www',
     watch: './app',
-  })
-  .on('start', () => {
+  }).on('start', () => {
     if (!started) {
       started = true;
     } else {
@@ -68,10 +78,10 @@ gulp.task('nodemon', () => {
 gulp.task('watch', () => {
   gulp.watch('./app/scss/**/*.scss', ['styles', reload]);
   gulp.watch('./app/js/*.js', ['js', reload]);
-  gulp.watch('./app/views/**/*.html', reload);
+  gulp.watch('./app/views/**/*.html', ['copyHTML', reload]);
 });
 
-gulp.task('build', ['fonts', 'img', 'styles', 'copyJS', 'js']);
+gulp.task('build', ['fonts', 'img', 'styles', 'copyJS', 'copyHTML', 'js']);
 
 gulp.task('dev', ['build', 'watch', 'nodemon'], () => {
   browserSync.init({

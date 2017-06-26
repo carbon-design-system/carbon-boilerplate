@@ -8,9 +8,7 @@ app.set('view engine', 'html');
 app.engine('html', require('hbs').__express); // eslint-disable-line no-underscore-dangle
 
 app.set('views', path.resolve(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'dist')));
-
-hbs.registerPartials(path.join(__dirname, '/views/partials'));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/', (req, res) => {
   res.render('home');

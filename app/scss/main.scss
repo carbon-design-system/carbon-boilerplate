@@ -1,16 +1,9 @@
-$font-path: '../assets/fonts';
-$use-fonts: true;
-$use-reset: true;
+$css--font-face: true;
+$font-path: 'https://unpkg.com/carbon-components@7.0.0/src/globals/fonts/';
 
-@import 'bluemix-components/consumables/scss/styles';
-@import 'utils/theme-switcher';
-@import 'utils/overrides';
+@import 'carbon-components/scss/globals/scss/styles';
 @import 'utils/temp';
 
-body {
-  transition: all $transition--base;
-}
-
 .container {
-  padding: calc(2rem + 86px) 5% 0;
+  padding: 2rem 5% 0;
 }

@@ -17,11 +17,9 @@
   "author": "TJ Egan",
   "license": "ISC",
   "dependencies": {
-    "@console/bluemix-components": "^6.13.1",
-    "@console/bluemix-icons": "^3.2.0",
+    "carbon-components": "^7.12.2",
     "express": "^4.14.0",
-    "hbs": "^4.0.1",
-    "svgxuse": "^1.1.23"
+    "hbs": "^4.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
