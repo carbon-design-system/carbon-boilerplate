@@ -1,5 +1,5 @@
 ### Installation
-- `git clone git@github.ibm.com:twegan/carbon-boilerplate.git`
+- `git clone git@github.com:carbon-design-system/carbon-boilerplate.git`
 - `cd carbon-boilerplate`
 - `npm install`
 - `npm run dev`

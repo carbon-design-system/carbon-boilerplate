@@ -976,9 +976,9 @@ caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000694"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000694.tgz#02009f4f82d2f0126e4c691b7cd5adb351935c01"
 
-carbon-components@^7.12.2:
-  version "7.12.2"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-7.12.2.tgz#5c16768e12140690585f0df373bddac5b6e1e44e"
+carbon-components@^7.22.2:
+  version "7.22.2"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-7.22.2.tgz#a69ebf5951c724582ff2884563ef8ec3060ba001"
   dependencies:
     carbon-icons "^6.0.4"
     flatpickr "2.6.3"
@@ -4567,10 +4567,6 @@ supports-color@^3.2.3:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
     has-flag "^1.0.0"
-
-svgxuse@^1.1.23:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/svgxuse/-/svgxuse-1.2.4.tgz#bb5eb73ae23c18c32288f47e6a7136e3818c548b"
 
 table@^3.7.8:
   version "3.8.3"
