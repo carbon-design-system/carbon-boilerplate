@@ -8,16 +8,15 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "start": "node app/bin/www.js",
-    "deploy": "cf push <<APP NAME HERE>>",
-    "postinstall": "gulp build"
+    "deploy": "cf push <<APP NAME HERE>>"
   },
   "engines": {
-    "node": "^5.0.0"
+    "node": "^6.0.0"
   },
   "author": "TJ Egan",
   "license": "ISC",
   "dependencies": {
-    "carbon-components": "^7.22.2",
+    "carbon-components": "^8.0.0",
     "express": "^4.14.0",
     "hbs": "^4.0.1"
   },
