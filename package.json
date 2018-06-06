@@ -16,7 +16,7 @@
   "author": "TJ Egan",
   "license": "ISC",
   "dependencies": {
-    "carbon-components": "^8.0.0",
+    "carbon-components": "^9.0.2",
     "express": "^4.14.0",
     "hbs": "^4.0.1"
   },
